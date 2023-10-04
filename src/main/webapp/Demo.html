@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Notes</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+        }
+
+        main {
+            max-width: 600px;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        #note-form {
+            display: flex;
+        }
+
+        #note-input {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        #add-button {
+            padding: 10px 20px;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            margin: 10px 0;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        li button {
+            background-color: #ff5b5b;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+
+        .note-time {
+            font-size: smaller;
+            color: #777;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>My Notes</h1>
+    </header>
+    <main>
+        <div id="note-form">
+            <input type="text" id="note-input" placeholder="Add a new note">
+            <button id="add-button">Add</button>
+        </div>
+        <ul id="note-list">
+            <!-- Notes will be added here dynamically -->
+        </ul>
+    </main>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const noteForm = document.getElementById('note-form');
+            const noteInput = document.getElementById('note-input');
+            const addButton = document.getElementById('add-button');
+            const noteList = document.getElementById('note-list');
+
+            addButton.addEventListener('click', () => {
+                const noteText = noteInput.value.trim();
+                if (noteText) {
+                    createNoteElement(noteText);
+                    noteInput.value = '';
+                }
+            });
+
+            noteList.addEventListener('click', (event) => {
+                if (event.target.tagName === 'BUTTON') {
+                    event.target.parentElement.remove();
+                }
+            });
+
+            function createNoteElement(text) {
+                const li = document.createElement('li');
+                const now = new Date();
+                const timestamp = `${now.toLocaleDateString()} ${now.toLocaleTimeString()}`;
+                li.innerHTML = `
+                    ${text}
+                    <span class="note-time">${timestamp}</span>
+                    <button>Delete</button>
+                `;
+                noteList.appendChild(li);
+            }
+        });
+    </script>
+</body>
+</html>
