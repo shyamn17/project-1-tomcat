@@ -60,7 +60,7 @@ h3{
                 <a href="./About.html"><li id="a">About</li></a>
                 <a href="./Bikes.html"><li id="a">Bikes</li></a>
                 <a href="./Profile.html"><li id="a">Profile</li></a>
-
+                <h3></h3>
                 
             </ul>
         </nav>
@@ -70,12 +70,13 @@ h3{
     Our biggest strength, the Royal Enfield Community, is growing strongly & steadily. It is a testament to the resonance our philosophy & products find with our customers. The unique bond our community shares is a privilege only a few brands enjoy. For us, the community goes beyond customers to motorcycling enthusiasts from all walks of life, across the world. We connect with riders through a variety of rides and events, engaging with them, hearing their exceptional stories and sharing them with each-other.</b></p>
 </div>
 <script>
-
+    var h3=document.querySelector("h3")
     let version=1.25;
     let updated=`${version + 0.01}`
     console.log(updated);
     document.createElement("h3")
-    h3.innerText=updated.value;
+    var h=updated.value;
+    h3.innerText(h)
 </script>
 </body>
 
