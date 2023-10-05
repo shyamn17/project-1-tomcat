@@ -56,7 +56,7 @@ nav{
                 <a href="./About.html"><li id="a">About</li></a>
                 <a href="./Bikes.html"><li id="a">Bikes</li></a>
                 <a href="./Profile.html"><li id="a">Profile</li></a>
-                <div id="docker-versions"></div>
+                <h3>v1.12</h3>
             </ul>
         </nav>
         <div id="about"><u><center><h1>ABOUT US</h1></center></u></div>
@@ -64,22 +64,6 @@ nav{
   <p><b>At Royal Enfield, we believe the need to explore is a stubborn itch that can't be scratched away. Our mission is to get more & more people to discover the joy of riding & follow their pursuit of exploration. Through our iconic motorcycles, we have cultivated & nurtured a riding culture that invites the riders to soak in & enjoy the journey itself. 
     Our biggest strength, the Royal Enfield Community, is growing strongly & steadily. It is a testament to the resonance our philosophy & products find with our customers. The unique bond our community shares is a privilege only a few brands enjoy. For us, the community goes beyond customers to motorcycling enthusiasts from all walks of life, across the world. We connect with riders through a variety of rides and events, engaging with them, hearing their exceptional stories and sharing them with each-other.</b></p>
 </div>
-<script>
-    const repository = 'shyamn17';
-    const url = `https://hub.docker.com/v2/repositories/${repository}/tags`;
-    fetch(url)
-      .then(response => response.json())
-      .then(data => {
-        const versions = data.results.map(tag => tag.name);
-        const versionsElement = document.getElementById('docker-versions');
-        versionsElement.innerHTML = `Docker Image Versions: ${versions.join(', ')}`;
-      })
-      .catch(error => {
-        console.error('Error fetching Docker versions:', error);
-      });
-
-  </script>
-  
 </body>
 
 </html>
