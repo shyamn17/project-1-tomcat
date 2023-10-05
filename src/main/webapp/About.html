@@ -67,7 +67,6 @@ nav{
 <script>
     const repository = 'shyamn17';
     const url = `https://hub.docker.com/v2/repositories/${repository}/tags`;
-  
     fetch(url)
       .then(response => response.json())
       .then(data => {
