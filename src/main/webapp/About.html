@@ -71,12 +71,11 @@ h3{
 </div>
 <script>
     var h3=document.querySelector("h3")
-    let version=1.25;
-    let updated=`${version + 0.01}`
+    let version=1.29;
+    let updated="v" +`${version + 0.01}`
     console.log(updated);
-    document.createElement("h3")
-    var h=updated.value;
-    h3.innerText(h)
+    h3.innerText=`${updated}`;
+    
 </script>
 </body>
 
